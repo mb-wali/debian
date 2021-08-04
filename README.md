@@ -1,6 +1,5 @@
 # Debian VM
 
-# debian:10
 
 build
 ```docker
@@ -17,7 +16,7 @@ run detached
 docker run -it -d mbwali/debian:10
 ```
 
-ping id address
+ping ip address
 
 ```bash
 $ docker inspect -f "{{ .NetworkSettings.IPAddress }}" 7fd8b80ae7e8
