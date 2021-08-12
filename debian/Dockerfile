@@ -1,8 +1,8 @@
 FROM debian:10
 
-RUN TZ=Europe/Vienna \
-apt-get update \
-&& apt-get install -y iproute2 iptables net-tools
+ARG DEBIAN_FRONTEND=noninteractive
 
-# add static ip address
-# https://stackoverflow.com/questions/27937185/assign-static-ip-to-docker-container
+# install required dependencies
+RUN apt-get update && apt-get install -y apt-utils \
+&& apt-get install -y iproute2 iptables net-tools \
+&& apt-get install nano

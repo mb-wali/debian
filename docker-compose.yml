@@ -1,6 +1,6 @@
 version: '3'
 
-# defined network for OS
+# defined docker network for operating systems
 networks:
   mynetwork:
     ipam:
@@ -13,6 +13,11 @@ services:
     image: mbwali/debian:10
     restart: always
     hostname: debian_node_a
+    # TODO - add via dockerfile
+    extra_hosts:
+      - "${NODE_B}"
+      - "${NODE_C}"
+      - "${NODE_D}"
     tty: true
     networks:
       mynetwork:
@@ -23,6 +28,11 @@ services:
     image: mbwali/debian:10
     restart: always
     hostname: debian_node_b
+    # TODO - add via dockerfile
+    extra_hosts:
+      - "${NODE_A}"
+      - "${NODE_C}"
+      - "${NODE_D}"
     tty: true
     networks:
       mynetwork:
@@ -33,7 +43,27 @@ services:
     image: mbwali/debian:10
     restart: always
     hostname: debian_node_c
+    # TODO - add via dockerfile
+    extra_hosts:
+      - "${NODE_A}"
+      - "${NODE_B}"
+      - "${NODE_D}"
     tty: true
     networks:
       mynetwork:
         ipv4_address: 172.20.0.8
+
+  # debian_node_d
+  noded:
+    image: mbwali/debian:10
+    restart: always
+    hostname: debian_node_d
+    # TODO - add via dockerfile
+    extra_hosts:
+      - "${NODE_A}"
+      - "${NODE_B}"
+      - "${NODE_C}"
+    tty: true
+    networks:
+      mynetwork:
+        ipv4_address: 172.20.0.9

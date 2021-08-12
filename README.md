@@ -34,7 +34,7 @@ rtt min/avg/max/mdev = 0.104/0.127/0.161/0.024 ms
 ```
 
 docker compose orchestration 
-This will run three OS of debian with static ip addresses
+This will run all OS of debian with static ip addresses
 ```docker
 docker-compose -f docker-compose.yml up -d
 ```
@@ -43,3 +43,7 @@ Stop all containers
 ```docker
 docker-compose -f docker-compose.yml down
 ```
+
+## HOSTS
+So that our VMS - can communicate with each other we need to set/add the hosts to /etc/hosts We have defined the existing hosts at, etc/hosts - all we need to do is copy them to the containers.
+For now - we have defined these host into our `.env` file and we are using `extra_hosts` to define these.
