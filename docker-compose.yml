@@ -1,0 +1,69 @@
+version: '3'
+
+# defined docker network for operating systems
+networks:
+  mynetwork:
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
+services:
+
+  # debian_node_a 
+  nodea:
+    image: mbwali/debian:latest
+    restart: always
+    hostname: debian_node_a
+    # TODO - add via dockerfile
+    extra_hosts:
+      - "${NODE_B}"
+      - "${NODE_C}"
+      - "${NODE_D}"
+    tty: true
+    networks:
+      mynetwork:
+        ipv4_address: 172.20.0.6
+
+  # debian_node_b
+  nodeb:
+    image: mbwali/debian:latest
+    restart: always
+    hostname: debian_node_b
+    # TODO - add via dockerfile
+    extra_hosts:
+      - "${NODE_A}"
+      - "${NODE_C}"
+      - "${NODE_D}"
+    tty: true
+    networks:
+      mynetwork:
+        ipv4_address: 172.20.0.7
+
+  # debian_node_c
+  nodec:
+    image: mbwali/debian:latest
+    restart: always
+    hostname: debian_node_c
+    # TODO - add via dockerfile
+    extra_hosts:
+      - "${NODE_A}"
+      - "${NODE_B}"
+      - "${NODE_D}"
+    tty: true
+    networks:
+      mynetwork:
+        ipv4_address: 172.20.0.8
+
+  # debian_node_d
+  noded:
+    image: mbwali/debian:latest
+    restart: always
+    hostname: debian_node_d
+    # TODO - add via dockerfile
+    extra_hosts:
+      - "${NODE_A}"
+      - "${NODE_B}"
+      - "${NODE_C}"
+    tty: true
+    networks:
+      mynetwork:
+        ipv4_address: 172.20.0.9
