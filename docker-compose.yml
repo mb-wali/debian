@@ -1,15 +1,39 @@
 version: '3'
+
+# defined network for OS
 networks:
   mynetwork:
     ipam:
       config:
         - subnet: 172.20.0.0/24
 services:
-  debian10:
-    build: ./debian/
+
+  # debian_node_a 
+  nodea:
     image: mbwali/debian:10
     restart: always
-    hostname: debian10
+    hostname: debian_node_a
+    tty: true
     networks:
       mynetwork:
         ipv4_address: 172.20.0.6
+
+  # debian_node_b
+  nodeb:
+    image: mbwali/debian:10
+    restart: always
+    hostname: debian_node_b
+    tty: true
+    networks:
+      mynetwork:
+        ipv4_address: 172.20.0.7
+
+  # debian_node_c
+  nodec:
+    image: mbwali/debian:10
+    restart: always
+    hostname: debian_node_c
+    tty: true
+    networks:
+      mynetwork:
+        ipv4_address: 172.20.0.8

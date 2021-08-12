@@ -34,7 +34,12 @@ rtt min/avg/max/mdev = 0.104/0.127/0.161/0.024 ms
 ```
 
 docker compose orchestration 
-NOTE: not working properly
+This will run three OS of debian with static ip addresses
 ```docker
 docker-compose -f docker-compose.yml up -d
+```
+
+Stop all containers
+```docker
+docker-compose -f docker-compose.yml down
 ```

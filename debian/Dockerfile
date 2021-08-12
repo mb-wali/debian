@@ -1,7 +1,6 @@
 FROM debian:10
 
-RUN DEBIAN_FRONTEND=noninteractive\
-TZ=Europe/Vienna \
+RUN TZ=Europe/Vienna \
 apt-get update \
 && apt-get install -y iproute2 iptables net-tools
 
