@@ -32,3 +32,9 @@ PING 172.17.0.2 (172.17.0.2) 56(84) bytes of data.
 3 packets transmitted, 3 received, 0% packet loss, time 2030ms
 rtt min/avg/max/mdev = 0.104/0.127/0.161/0.024 ms
 ```
+
+docker compose orchestration 
+NOTE: not working properly
+```docker
+docker-compose -f docker-compose.yml up -d
+```

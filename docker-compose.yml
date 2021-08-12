@@ -1,0 +1,15 @@
+version: '3'
+networks:
+  mynetwork:
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
+services:
+  debian10:
+    build: ./debian/
+    image: mbwali/debian:10
+    restart: always
+    hostname: debian10
+    networks:
+      mynetwork:
+        ipv4_address: 172.20.0.6
