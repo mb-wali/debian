@@ -49,3 +49,27 @@ docker-compose -f docker-compose.yml down
 ## HOSTS
 So that our VMS - can communicate with each other we need to set/add the hosts to /etc/hosts We have defined the existing hosts at, etc/hosts - all we need to do is copy them to the containers.
 For now - we have defined these host into our `.env` file and we are using `extra_hosts` to define these.
+
+## Configure SSH keys
+in order to access the VMS via ssh, we need to create & add the public sshkeys to other VMS.
+
+NOTE: this means on which VM we have created the sshkey, that machine will be able to access
+other VMS without any password prompt.
+
+**Generate sshkey:**
+
+```shell
+ssh-keygen
+```
+
+**Copy public key to other VMS or hosts:**
+
+```shell
+ssh-copy-id -i ~/.ssh/id_rsa.pub root@hostname.com
+```
+
+**Now try logging into the machine, with:**
+
+```shell
+ssh root@hostname.com
+```
