@@ -49,3 +49,16 @@ ssh root@master.example.com
 ssh root@nodeone.example.com
 ssh root@nodetwo.example.com
 ```
+
+## ANSIBLE
+inside your ansible VM run this command to install ansible
+
+```shell
+apt install ansible
+```
+
+Add hosts for ansible
+
+```shell
+cp ./ansible_kubernetes/hosts /etc/ansible/hosts
+```
