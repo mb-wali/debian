@@ -62,3 +62,13 @@ Add hosts for ansible
 ```shell
 cp ./ansible_kubernetes/hosts /etc/ansible/hosts
 ```
+
+list only master hosts of ansible
+```shell
+ansible masters --list-hosts
+```
+
+list all the hosts of ansible
+```shell
+ansible all --list-hosts
+```
