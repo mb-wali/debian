@@ -1,21 +1,21 @@
 # Debian VMs
-Ready orchestration of several VMS based on debian:10
-all configured communication between these VMS.
+Ready orchestration of several VMS based on **debian 10**, 
+pre-configured communication between these VMS.
 
 
 build
 ```docker
-docker build -t mbwali/debian:10 ./debian/
+docker build -t mbwali/debian:latest ./debian/
 ```
 
 run 
 ```docker
-docker run -it mbwali/debian:10
+docker run -it mbwali/debian:latest
 ```
 
 run detached
 ```docker
-docker run -it -d mbwali/debian:10
+docker run -it -d mbwali/debian:latest
 ```
 
 ping ip address
