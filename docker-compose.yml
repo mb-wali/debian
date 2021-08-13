@@ -12,7 +12,7 @@ services:
   nodea:
     image: mbwali/debian:latest
     restart: always
-    hostname: debian_node_a
+    hostname: debian_node_a.com
     # TODO - add via dockerfile
     extra_hosts:
       - "${NODE_B}"
@@ -27,7 +27,7 @@ services:
   nodeb:
     image: mbwali/debian:latest
     restart: always
-    hostname: debian_node_b
+    hostname: debian_node_b.com
     # TODO - add via dockerfile
     extra_hosts:
       - "${NODE_A}"
@@ -42,7 +42,7 @@ services:
   nodec:
     image: mbwali/debian:latest
     restart: always
-    hostname: debian_node_c
+    hostname: debian_node_c.com
     # TODO - add via dockerfile
     extra_hosts:
       - "${NODE_A}"
@@ -57,7 +57,7 @@ services:
   noded:
     image: mbwali/debian:latest
     restart: always
-    hostname: debian_node_d
+    hostname: debian_node_d.com
     # TODO - add via dockerfile
     extra_hosts:
       - "${NODE_A}"
