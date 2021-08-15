@@ -93,5 +93,5 @@ Ansible playbooks are blueprint of automation tasks
 **Check playbook syntax**
 
 ```shell
-ansible-playbook /playbooks/install-docker.yml --syntax-check
+ansible-playbook ./install-docker.yml --syntax-check
 ```
