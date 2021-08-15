@@ -1,0 +1,23 @@
+- hosts: all
+  become: yes
+  tasks:
+
+    # install docker to all hosts
+   - name: install Docker
+     apt:
+       name: docker
+       state: present
+       update_cache: true
+
+   - name: start Docker
+     service:
+       name: docker
+       state: started
+       enabled: true
+
+# reboot all the machines
+- hosts: all
+  become: yes
+  tasks:
+   - name: reboot ALL machines
+     reboot:

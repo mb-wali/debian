@@ -51,7 +51,7 @@ ssh root@nodetwo.example.com
 ```
 
 ## ANSIBLE
-inside your ansible VM run this command to install ansible
+inside your ansible VM run this command to install ansible.
 
 ```shell
 apt install ansible
@@ -71,4 +71,27 @@ ansible masters --list-hosts
 list all the hosts of ansible
 ```shell
 ansible all --list-hosts
+```
+
+**ansible.cfg**
+
+Ansible configuration file.
+which overrides `/etc/ansible/ansible.cfg`
+
+modify this to point to the hosts file.
+```
+Inventory = <path to the HOSTS file>
+```
+
+**hosts**
+list of hosts connected with ansible.
+
+
+### Playbooks
+Ansible playbooks are blueprint of automation tasks
+
+**Check playbook syntax**
+
+```shell
+ansible-playbook /playbooks/install-docker.yml --syntax-check
 ```
