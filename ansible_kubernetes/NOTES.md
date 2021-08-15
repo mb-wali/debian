@@ -57,11 +57,32 @@ inside your ansible VM run this command to install ansible.
 apt install ansible
 ```
 
-Add hosts for ansible
+### Use exiting ansible configuration
+
+1. install git  `apt install git`
+
+2. clone this repo
+
+```git
+git clone https://github.com/mb-wali/debian.git
+```
+
+3. navigate to repo
 
 ```shell
-cp ./ansible_kubernetes/hosts /etc/ansible/hosts
+cd debian/ansible_kubernetes/
 ```
+
+4. modify **ansible.cfg** to point to the hosts file.
+
+Ansible configuration file.
+which overrides `/etc/ansible/ansible.cfg`
+
+```
+Inventory = <path to the HOSTS file>
+```
+
+**check ansible hosts**
 
 list only master hosts of ansible
 ```shell
@@ -71,16 +92,6 @@ ansible masters --list-hosts
 list all the hosts of ansible
 ```shell
 ansible all --list-hosts
-```
-
-**ansible.cfg**
-
-Ansible configuration file.
-which overrides `/etc/ansible/ansible.cfg`
-
-modify this to point to the hosts file.
-```
-Inventory = <path to the HOSTS file>
 ```
 
 **hosts**
@@ -93,5 +104,13 @@ Ansible playbooks are blueprint of automation tasks
 **Check playbook syntax**
 
 ```shell
-ansible-playbook ./install-docker.yml --syntax-check
+ansible-playbook ./playbooks/install-docker.yml --syntax-check
+```
+
+### OR
+
+Add hosts for root
+
+```shell
+cp ./ansible_kubernetes/hosts /etc/ansible/hosts
 ```
