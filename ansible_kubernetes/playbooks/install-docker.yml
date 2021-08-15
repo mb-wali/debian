@@ -1,5 +1,5 @@
 - hosts: all
-  become: yes
+  become: sudo
   tasks:
 
     # install docker to all hosts

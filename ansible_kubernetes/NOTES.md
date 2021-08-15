@@ -79,7 +79,7 @@ Ansible configuration file.
 which overrides `/etc/ansible/ansible.cfg`
 
 ```
-Inventory = <path to the HOSTS file>
+Inventory = /debian/ansible_kubernetes/hosts
 ```
 
 **check ansible hosts**
@@ -94,9 +94,10 @@ list all the hosts of ansible
 ansible all --list-hosts
 ```
 
-**hosts**
-list of hosts connected with ansible.
-
+ping all ansible hosts
+```shell
+ansible -m ping all
+```
 
 ### Playbooks
 Ansible playbooks are blueprint of automation tasks
@@ -114,3 +115,8 @@ Add hosts for root
 ```shell
 cp ./ansible_kubernetes/hosts /etc/ansible/hosts
 ```
+
+
+## TODO:
+* what is `become: yes` & `  become: sudo` in **playbook**?
+* install docker and enable docker-
