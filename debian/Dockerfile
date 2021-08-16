@@ -7,7 +7,9 @@ RUN apt-get update && apt-get install -y apt-utils \
 && apt-get install -y iproute2 iptables net-tools \
 && apt-get install nano \
 && apt-get install -y openssh-server openssh-client \
-&& apt-get install -y python
+&& apt-get install -y python \
+&& apt-get install -y ca-certificates \
+&& update-ca-certificates
 
 # Add root pass
 RUN echo 'root:root' | chpasswd
