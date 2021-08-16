@@ -1,19 +1,15 @@
 # Ansible with Kubernetes
-
 We will setup a network of VMS, which will have: 
 
-1 master node of Kubernetes, 2 Kubernetes nodes/workers & 1 Ansible controller node.
+**Ansible controller** - "ansible.example.com"
+
+**Kubernetes master** - "master.example.com"
+
+**Kubernetes node**  - "nodeone.example.com"
+
+**Kubernetes node** - "nodetwo.example.com"
 
 *we will controll all the nodes from our ansible controller node.*
-
-Ansible controller "ansible.example.com"
-
-Kubernetes master "master.example.com"
-
-Kubernetes node   "nodeone.example.com"
-
-Kubernetes node "nodetwo.example.com"
-
 
 **run**
 ```docker
@@ -105,18 +101,13 @@ Ansible playbooks are blueprint of automation tasks
 **Check playbook syntax**
 
 ```shell
-ansible-playbook ./playbooks/install-docker.yml --syntax-check
+ansible-playbook ./playbooks/docker.yml --syntax-check
 ```
 
-### OR
+### Playbooks
+we have writen one playbook `./playbooks/docker.yml`, we can run this to install docker on all the machines.
 
-Add hosts for root
-
+run
 ```shell
-cp ./ansible_kubernetes/hosts /etc/ansible/hosts
+ansible-playbook ./playbooks/docker.yml
 ```
-
-
-## TODO:
-* what is `become: yes` & `  become: sudo` in **playbook**?
-* install docker and enable docker-
