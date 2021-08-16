@@ -1,0 +1,73 @@
+version: '3'
+
+# defined docker network for operating systems
+networks:
+  mynetwork:
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
+services:
+
+  # debian_node_a 
+  master:
+    image: mbwali/debian:latest
+    container_name: master
+    restart: always
+    hostname: master.example.com
+    # TODO - add via dockerfile
+    extra_hosts:
+      - "ansible.example.com:172.20.0.7"
+      - "nodeone.example.com:172.20.0.8"
+      - "nodetwo.example.com:172.20.0.9"
+    tty: true
+    networks:
+      mynetwork:
+        ipv4_address: 172.20.0.6
+
+  # debian_node_b
+  ansible:
+    image: mbwali/debian:latest
+    container_name: ansible
+    restart: always
+    hostname: ansible.example.com
+    # TODO - add via dockerfile
+    extra_hosts:
+      - "master.example.com:172.20.0.6"
+      - "nodeone.example.com:172.20.0.8"
+      - "nodetwo.example.com:172.20.0.9"
+    tty: true
+    networks:
+      mynetwork:
+        ipv4_address: 172.20.0.7
+
+  # debian_node_c
+  nodeone:
+    image: mbwali/debian:latest
+    container_name: nodeone
+    restart: always
+    hostname: nodeone.example.com
+    # TODO - add via dockerfile
+    extra_hosts:
+      - "master.example.com:172.20.0.6"
+      - "ansible.example.com:172.20.0.7"
+      - "nodetwo.example.com:172.20.0.9"
+    tty: true
+    networks:
+      mynetwork:
+        ipv4_address: 172.20.0.8
+
+  # debian_node_d
+  nodetwo:
+    image: mbwali/debian:latest
+    container_name: nodetwo
+    restart: always
+    hostname: nodetwo.example.com
+    # TODO - add via dockerfile
+    extra_hosts:
+      - "master.example.com:172.20.0.6"
+      - "ansible.example.com:172.20.0.7"
+      - "nodeone.example.com:172.20.0.8"
+    tty: true
+    networks:
+      mynetwork:
+        ipv4_address: 172.20.0.9
